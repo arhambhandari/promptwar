@@ -93,13 +93,67 @@ export default function Home() {
                   <div className="font-headline-lg text-headline-lg text-primary">2.1M</div>
                 </div>
                 <div className="w-10 h-10 rounded-full bg-secondary-fixed/30 flex items-center justify-center text-on-secondary-container">
-                  <span className="material-symbols-outlined">group</span>
+                  <span className="material-symbols-outlined" aria-hidden="true">group</span>
                 </div>
               </div>
               <div className="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
                 <div className="bg-secondary h-full w-[85%] rounded-full"></div>
               </div>
               <p className="font-label-sm text-label-sm text-on-surface-variant mt-3">{t("deployed")}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Phase Explanation & State-wise Dates */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant">
+            <h3 className="text-2xl font-bold text-primary mb-4">Census Phases Explained</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <span className="bg-primary/10 text-primary font-bold px-3 py-1 rounded-full text-sm">Phase 1</span>
+                <div>
+                  <strong>House Listing & Housing Census</strong>
+                  <p className="text-gray-600 text-sm mt-1">Collecting data on housing conditions, amenities, and assets available to households.</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="bg-secondary/10 text-secondary font-bold px-3 py-1 rounded-full text-sm">Phase 2</span>
+                <div>
+                  <strong>Population Enumeration</strong>
+                  <p className="text-gray-600 text-sm mt-1">The primary phase of demographic data collection including age, literacy, religion, and employment.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div className="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant">
+            <h3 className="text-2xl font-bold text-primary mb-4">State-Wise Dates</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="border-b border-gray-200">
+                    <th className="py-2 text-gray-500 font-medium">State/UT</th>
+                    <th className="py-2 text-gray-500 font-medium">Phase 1 Start</th>
+                    <th className="py-2 text-gray-500 font-medium">Phase 2 Start</th>
+                  </tr>
+                </thead>
+                <tbody className="text-sm">
+                  <tr className="border-b border-gray-100">
+                    <td className="py-3 font-medium">Delhi & NCR</td>
+                    <td className="py-3 text-gray-600">Apr 15, 2027</td>
+                    <td className="py-3 text-gray-600">Feb 09, 2028</td>
+                  </tr>
+                  <tr className="border-b border-gray-100">
+                    <td className="py-3 font-medium">Maharashtra</td>
+                    <td className="py-3 text-gray-600">May 01, 2027</td>
+                    <td className="py-3 text-gray-600">Feb 15, 2028</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 font-medium">Tamil Nadu</td>
+                    <td className="py-3 text-gray-600">Jun 10, 2027</td>
+                    <td className="py-3 text-gray-600">Mar 01, 2028</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

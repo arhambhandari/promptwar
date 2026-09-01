@@ -62,7 +62,7 @@ export default function GenAIHelp({ context = "" }: { context?: string }) {
             <div className="flex items-center gap-2 font-semibold">
               <Bot size={20} /> Secure Census Assistant
             </div>
-            <button onClick={() => setIsOpen(false)} className="hover:bg-blue-700 p-1 rounded transition"><X size={20}/></button>
+            <button onClick={() => setIsOpen(false)} className="hover:bg-blue-700 p-1 rounded transition" aria-label="Close chat"><X size={20}/></button>
           </div>
           
           <div className="bg-blue-50 border-b p-2 text-xs text-blue-800 flex items-center gap-2 justify-center">
@@ -95,7 +95,7 @@ export default function GenAIHelp({ context = "" }: { context?: string }) {
 
           <div className="p-4 bg-white border-t flex gap-2">
             <input 
-              type="text" 
+              type="text" aria-label="Chat input" 
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
@@ -104,7 +104,7 @@ export default function GenAIHelp({ context = "" }: { context?: string }) {
               disabled={loading}
             />
             <button 
-              onClick={handleSend}
+              onClick={handleSend} aria-label="Send message"
               disabled={loading}
               className={`text-white p-2.5 rounded-full transition ${loading ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`}
             >

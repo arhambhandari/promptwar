@@ -1,6 +1,8 @@
 "use client";
 import { useLanguage } from "../context/LanguageContext";
+import GenAIHelp from "../components/GenAIHelp";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   const { t } = useLanguage();
@@ -12,7 +14,13 @@ export default function Home() {
         <div className="mb-12 relative rounded-3xl overflow-hidden min-h-[350px] flex flex-col justify-center p-8 md:p-12 shadow-md">
           {/* Background Image with Gradient Overlay */}
           <div className="absolute inset-0 z-0">
-            <img src="/images/census_logo_bg.png" alt="Census 2027 Logo" className="w-full h-full object-cover object-center opacity-40" />
+            <Image 
+              src="/images/census_logo_bg.png" 
+              alt="Census 2027 Logo Background" 
+              fill
+              className="object-cover object-center opacity-40" 
+              priority
+            />
             <div className="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/80 to-transparent"></div>
           </div>
           
@@ -29,26 +37,26 @@ export default function Home() {
 
         {/* Bento Grid Dashboard Mockup */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-          <div className="md:col-span-8 bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden shadow-sm relative min-h-[500px] flex flex-col">
-            <div className="p-6 border-b border-surface-variant flex justify-between items-center bg-surface-container-lowest/80 backdrop-blur z-10">
-              <h2 className="font-headline-md text-headline-md text-primary">{t("story_map")}</h2>
-              <div className="flex gap-2">
-                <span className="inline-flex items-center gap-1 bg-surface-container px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface">
-                  <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-                  {t("live_sync")}
-                </span>
+          {/* Main Map Area */}
+          <div className="md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden flex flex-col shadow-sm">
+            <div className="p-4 border-b border-outline-variant flex justify-between items-center bg-surface">
+              <h2 className="font-headline-sm text-headline-sm text-on-surface">{t("story_map")}</h2>
+              <div className="flex items-center gap-2 text-label-sm text-secondary bg-secondary/10 px-3 py-1 rounded-full">
+                <div className="w-2 h-2 rounded-full bg-secondary animate-pulse"></div>
+                {t("live_sync")}
               </div>
             </div>
             
-            <div className="flex-grow bg-surface relative flex items-center justify-center p-8 overflow-hidden">
+            <div className="flex-grow bg-surface relative flex items-center justify-center p-8 overflow-hidden min-h-[400px]">
               <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#000000 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
               
               {/* Map of India Background */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-4">
-                <img 
+                <Image 
                   src="/images/india_map_illustrated.png" 
-                  alt="Map of India" 
-                  className="object-contain w-full h-full"
+                  alt="Illustrated Map of India" 
+                  fill
+                  className="object-contain"
                 />
               </div>
 

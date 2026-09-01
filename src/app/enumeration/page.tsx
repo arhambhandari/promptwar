@@ -84,6 +84,7 @@ export default function EnumerationPage() {
               }
             }
           }}
+          aria-label={isMuted ? "Turn on voice assistant" : "Turn off voice assistant"}
           className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-label-md transition cursor-pointer ${
             isMuted ? 'bg-surface-variant text-on-surface-variant hover:bg-surface-variant/80' : 'bg-secondary/10 text-secondary hover:bg-secondary/20'
           }`}
@@ -130,7 +131,7 @@ export default function EnumerationPage() {
           <div className="space-y-8">
             <div className="flex justify-between items-center">
               <h2 className="text-3xl font-headline-md font-bold text-primary">{t("personal_details")}</h2>
-              <button onClick={() => speak(t("speech_name"))} className="text-secondary"><Volume2 size={28}/></button>
+              <button onClick={() => speak(t("speech_name"))} className="text-secondary" aria-label="Read instructions out loud"><Volume2 size={28}/></button>
             </div>
             
                         <div className="relative">
@@ -141,8 +142,8 @@ export default function EnumerationPage() {
             <div className="relative">
               <label className="block text-lg font-label-md text-on-surface-variant mb-2">{t("full_name")}</label>
               <div className="flex gap-2">
-                <input type="text" className="w-full border-2 border-outline-variant rounded-xl p-4 text-lg outline-none focus:border-secondary" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} placeholder="e.g. Rahul Kumar" />
-                <button onClick={() => handleVoiceInput("name")} className="bg-secondary text-white p-4 rounded-xl hover:bg-secondary/90 transition flex-shrink-0">
+                <input type="text" aria-label="Full Name" className="w-full border-2 border-outline-variant rounded-xl p-4 text-lg outline-none focus:border-secondary" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} placeholder="e.g. Rahul Kumar" />
+                <button onClick={() => handleVoiceInput("name")} className="bg-secondary text-white p-4 rounded-xl hover:bg-secondary/90 transition flex-shrink-0" aria-label="Start voice input">
                   <Mic size={24} />
                 </button>
               </div>
@@ -192,14 +193,14 @@ export default function EnumerationPage() {
           <div className="space-y-8">
             <div className="flex justify-between items-center">
               <h2 className="text-3xl font-headline-md font-bold text-primary">{t("household_details")}</h2>
-              <button onClick={() => speak(t("speech_address"))} className="text-secondary"><Volume2 size={28}/></button>
+              <button onClick={() => speak(t("speech_address"))} className="text-secondary" aria-label="Read instructions out loud"><Volume2 size={28}/></button>
             </div>
             
             <div className="relative">
               <label className="block text-lg font-label-md text-on-surface-variant mb-2">{t("address")}</label>
               <div className="flex gap-2">
                 <textarea className="w-full border-2 border-outline-variant rounded-xl p-4 text-lg outline-none focus:border-secondary" rows={2} value={formData.address} onChange={e => setFormData({...formData, address: e.target.value})} placeholder="e.g. 123 MG Road..."></textarea>
-                <button onClick={() => handleVoiceInput("address")} className="bg-secondary text-white p-4 rounded-xl hover:bg-secondary/90 transition flex-shrink-0 h-16">
+                <button onClick={() => handleVoiceInput("address")} className="bg-secondary text-white p-4 rounded-xl hover:bg-secondary/90 transition flex-shrink-0 h-16" aria-label="Start voice input">
                   <Mic size={24} />
                 </button>
               </div>
@@ -209,6 +210,7 @@ export default function EnumerationPage() {
               <div>
                 <label className="block text-lg font-label-md text-on-surface-variant mb-2">{t("state")}</label>
                 <select 
+                  aria-label="Select"
                   className="w-full border-2 border-outline-variant rounded-xl p-4 text-lg outline-none focus:border-secondary bg-white" 
                   value={formData.state} 
                   onChange={e => setFormData({...formData, state: e.target.value, district: "", city: ""})}
@@ -252,9 +254,9 @@ export default function EnumerationPage() {
             <div>
               <label className="block text-lg font-label-md text-on-surface-variant mb-2">{t("members")}</label>
               <div className="flex items-center gap-4">
-                <button onClick={() => setFormData(p => ({...p, members: Math.max(1, p.members - 1)}))} className="w-14 h-14 bg-surface-container rounded-full text-2xl font-bold hover:bg-surface-variant">-</button>
+                <button onClick={() => setFormData(p => ({...p, members: Math.max(1, p.members - 1)}))} className="w-14 h-14 bg-surface-container rounded-full text-2xl font-bold hover:bg-surface-variant" aria-label="Decrease members">-</button>
                 <span className="text-3xl font-bold text-primary w-8 text-center">{formData.members}</span>
-                <button onClick={() => setFormData(p => ({...p, members: p.members + 1}))} className="w-14 h-14 bg-surface-container rounded-full text-2xl font-bold hover:bg-surface-variant">+</button>
+                <button onClick={() => setFormData(p => ({...p, members: p.members + 1}))} className="w-14 h-14 bg-surface-container rounded-full text-2xl font-bold hover:bg-surface-variant" aria-label="Increase members">+</button>
               </div>
             </div>
           </div>

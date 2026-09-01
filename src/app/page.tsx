@@ -1,0 +1,101 @@
+"use client";
+import { useLanguage } from "../context/LanguageContext";
+import Link from "next/link";
+
+export default function Home() {
+  const { t } = useLanguage();
+
+  return (
+    <div className="bg-background">
+      {/* Hero Section */}
+      <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+        <div className="mb-12 relative rounded-3xl overflow-hidden min-h-[350px] flex flex-col justify-center p-8 md:p-12 shadow-md">
+          {/* Background Image with Gradient Overlay */}
+          <div className="absolute inset-0 z-0">
+            <img src="/images/census_logo_bg.png" alt="Census 2027 Logo" className="w-full h-full object-cover object-center opacity-40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/80 to-transparent"></div>
+          </div>
+          
+          {/* Text Content */}
+          <div className="relative z-10 max-w-3xl">
+            <h1 className="font-display-lg text-display-lg md:text-[64px] md:leading-[72px] text-primary mb-4 tracking-tight">
+              {t("hero_title")}
+            </h1>
+            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+              {t("hero_subtitle")}
+            </p>
+          </div>
+        </div>
+
+        {/* Bento Grid Dashboard Mockup */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+          <div className="md:col-span-8 bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden shadow-sm relative min-h-[500px] flex flex-col">
+            <div className="p-6 border-b border-surface-variant flex justify-between items-center bg-surface-container-lowest/80 backdrop-blur z-10">
+              <h2 className="font-headline-md text-headline-md text-primary">{t("story_map")}</h2>
+              <div className="flex gap-2">
+                <span className="inline-flex items-center gap-1 bg-surface-container px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface">
+                  <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                  {t("live_sync")}
+                </span>
+              </div>
+            </div>
+            
+            <div className="flex-grow bg-surface relative flex items-center justify-center p-8 overflow-hidden">
+              <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#000000 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+              
+              {/* Map of India Background */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-4">
+                <img 
+                  src="/images/india_map_illustrated.png" 
+                  alt="Map of India" 
+                  className="object-contain w-full h-full"
+                />
+              </div>
+
+              <div className="text-center z-10">
+                 <Link href="/enumeration" className="font-label-md text-label-md bg-primary text-on-primary px-8 py-4 rounded-lg hover:opacity-90 transition-opacity text-xl shadow-lg">
+                    {t("click_here")}
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Key Metrics Sidebar */}
+          <div className="md:col-span-4 flex flex-col gap-gutter">
+            <div className="bg-primary text-on-primary rounded-xl p-8 flex flex-col justify-between relative overflow-hidden shadow-sm">
+              <div className="absolute top-0 right-0 -mr-8 -mt-8 w-40 h-40 bg-white/5 rounded-full blur-2xl"></div>
+              <div>
+                <p className="font-label-md text-label-md text-primary-fixed-dim uppercase tracking-widest mb-2">{t("total_enumerated")}</p>
+                <div className="font-display-lg text-[56px] leading-none mb-1">482M</div>
+                <p className="font-body-md text-body-md text-inverse-primary/80">{t("citizens_recorded")}</p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-end">
+                <div>
+                  <div className="font-label-sm text-label-sm text-primary-fixed-dim mb-1">{t("target_completion")}</div>
+                  <div className="font-headline-lg text-headline-lg">34.2%</div>
+                </div>
+                <span className="material-symbols-outlined text-4xl text-secondary-container">trending_up</span>
+              </div>
+            </div>
+
+            <div className="bg-surface-container-lowest border border-surface-variant rounded-xl p-6 shadow-sm flex flex-col justify-between">
+              <div className="flex justify-between items-start mb-6">
+                <div>
+                  <p className="font-label-md text-label-md text-on-surface-variant mb-1">{t("active_workers")}</p>
+                  <div className="font-headline-lg text-headline-lg text-primary">2.1M</div>
+                </div>
+                <div className="w-10 h-10 rounded-full bg-secondary-fixed/30 flex items-center justify-center text-on-secondary-container">
+                  <span className="material-symbols-outlined">group</span>
+                </div>
+              </div>
+              <div className="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+                <div className="bg-secondary h-full w-[85%] rounded-full"></div>
+              </div>
+              <p className="font-label-sm text-label-sm text-on-surface-variant mt-3">{t("deployed")}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

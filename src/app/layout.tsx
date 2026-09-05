@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { LanguageProvider } from "../context/LanguageContext";
 
 export const metadata: Metadata = {
@@ -17,10 +18,13 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-background text-on-background antialiased font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
         <LanguageProvider>
-          <Navbar />
-          <main className="min-h-screen">
-            {children}
-          </main>
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </div>
         </LanguageProvider>
       </body>
     </html>

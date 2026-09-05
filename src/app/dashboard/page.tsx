@@ -26,7 +26,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8">
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
           <h2 className="text-xl font-bold text-gray-800 mb-6">Population & Literacy Projection (Millions / %)</h2>
           <div className="h-80">
             <ResponsiveContainer width="100%" height="100%">
@@ -44,7 +44,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
           <h2 className="text-xl font-bold text-gray-800 mb-6">Housing Quality (Phase 1 Mock Data)</h2>
           <div className="h-80">
             <ResponsiveContainer width="100%" height="100%">

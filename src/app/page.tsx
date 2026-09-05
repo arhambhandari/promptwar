@@ -70,7 +70,7 @@ export default function Home() {
 
           {/* Key Metrics Sidebar */}
           <div className="md:col-span-4 flex flex-col gap-gutter">
-            <div className="bg-primary text-on-primary rounded-xl p-8 flex flex-col justify-between relative overflow-hidden shadow-sm">
+            <div className="bg-primary text-on-primary rounded-xl p-8 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
               <div className="absolute top-0 right-0 -mr-8 -mt-8 w-40 h-40 bg-white/5 rounded-full blur-2xl"></div>
               <div>
                 <p className="font-label-md text-label-md text-primary-fixed-dim uppercase tracking-widest mb-2">{t("total_enumerated")}</p>
@@ -86,7 +86,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-surface-container-lowest border border-surface-variant rounded-xl p-6 shadow-sm flex flex-col justify-between">
+            <div className="bg-surface-container-lowest border border-surface-variant rounded-xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:-translate-y-1 transition-all duration-300">
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <p className="font-label-md text-label-md text-on-surface-variant mb-1">{t("active_workers")}</p>
@@ -106,7 +106,7 @@ export default function Home() {
 
         {/* Phase Explanation & State-wise Dates */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant">
+          <div className="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant hover:shadow-md hover:-translate-y-1 transition-all duration-300">
             <h3 className="text-2xl font-bold text-primary mb-4">Census Phases Explained</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
@@ -125,7 +125,7 @@ export default function Home() {
               </li>
             </ul>
           </div>
-          <div className="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant">
+          <div className="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant hover:shadow-md hover:-translate-y-1 transition-all duration-300">
             <h3 className="text-2xl font-bold text-primary mb-4">State-Wise Dates</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
